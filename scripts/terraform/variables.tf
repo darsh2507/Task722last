@@ -1,7 +1,7 @@
 # Sets global variables for this Terraform project.
 
 variable "app_name" {
-  default = "flixtubesSITTask"
+  default = "task9darsh"
 }
 
 variable "location" {
