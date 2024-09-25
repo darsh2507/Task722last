@@ -1,0 +1,33 @@
+name: Terraform Infrastructure Setup
+
+on:
+  workflow_dispatch: 
+
+jobs:
+  terraform:
+    name: Terraform apply
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Terraform
+      uses: hashicorp/setup-terraform@v2
+      with:
+        terraform_version: '1.5.6' 
+
+    # Use command: az ad sp create-for-rbac --name github-actions --role Owner --scopes /subscriptions/82923ab2-fd6b-42cd-9d50-39af93cacfe8 --sdk-auth
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Initialize Terraform
+      working-directory: ./scripts/terraform
+      run: terraform init
+
+    - name: Apply Terraform
+      working-directory: ./scripts/terraform
+      run: terraform apply -auto-approve
+
