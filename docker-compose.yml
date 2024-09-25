@@ -1,0 +1,31 @@
+# Your Solution
+version: '3'
+services:
+   
+  book-library:
+    platform: linux/amd64 
+    image: bookf
+    build: 
+      context: ./book_catalog
+      dockerfile: Dockerfile
+    container_name: bookf
+    ports:
+     - "8080:8080"
+    environment:
+      - PORT=8080
+      - DATABASE_URL=postgresql://sit722part4_94kt_user:xpzqwpmW8TaW9hzgfqF8Azo7vKMQ0wZh@dpg-crliskrv2p9s73foi53g-a.oregon-postgres.render.com/sit722part4_94kt
+    restart: "no"
+
+  book-inventory:
+    platform: linux/amd64 
+    image: inventoryf
+    build: 
+      context: ./inventory_management
+      dockerfile: Dockerfile
+    container_name: inventoryf
+    ports:
+     - "8081:8081"
+    environment:
+      - PORT=8081
+      - DATABASE_URL=postgresql://sit722part4_94kt_user:xpzqwpmW8TaW9hzgfqF8Azo7vKMQ0wZh@dpg-crliskrv2p9s73foi53g-a.oregon-postgres.render.com/sit722part4_94kt
+    restart: "no"

@@ -1,0 +1,79 @@
+# Your Solution
+#deployment details for loading deakin-library image
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bookf
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bookf
+  template:
+    metadata:
+      labels:
+        app: bookf
+    spec:
+      containers:
+        - name: bookf
+          image: flixtubessittask.azurecr.io/bookf:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          env:
+            - name: DATABASE_URL
+              value: "postgresql://sit722part4_94kt_user:xpzqwpmW8TaW9hzgfqF8Azo7vKMQ0wZh@dpg-crliskrv2p9s73foi53g-a.oregon-postgres.render.com/sit722part4_94kt"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bookf
+spec:
+  selector:
+    app: bookf
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 31000
+      targetPort: 8080
+
+---
+#deployment details for loading deakin-library image (book_catalog)
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inventoryf
+  labels:
+    app: inventoryf
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: inventoryf
+  template:
+    metadata:
+      labels:
+        app: inventoryf
+    spec:
+      containers:
+        - name: inventoryf
+          image: flixtubessittask.azurecr.io/inventoryf:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8081
+          env:
+            - name: DATABASE_URL
+              value: "postgresql://sit722part4_94kt_user:xpzqwpmW8TaW9hzgfqF8Azo7vKMQ0wZh@dpg-crliskrv2p9s73foi53g-a.oregon-postgres.render.com/sit722part4_94kt"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: inventoryf
+spec:
+  selector:
+    app: inventoryf
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 32000
+      targetPort: 8081
