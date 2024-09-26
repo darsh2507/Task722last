@@ -1,12 +1,9 @@
-set -u
+set -u # or set -o nounset
 : "$CONTAINER_REGISTRY"
 : "$VERSION"
 
-# Debugging - check if the variables are being set correctly
-echo "Building images with:"
-echo "CONTAINER_REGISTRY: $CONTAINER_REGISTRY"
-echo "VERSION: $VERSION"
+docker compose -f ./docker-compose.yml build
 
-# Build Docker images for book_catalog and inventory_management
-docker build -t $CONTAINER_REGISTRY/book_catalog:$VERSION ./book_catalog
-docker build -t $CONTAINER_REGISTRY/inventory_management:$VERSION ./inventory_management
+docker tag bookf $CONTAINER_REGISTRY/bookf:1 
+
+docker tag inventoryf $CONTAINER_REGISTRY/inventoryf:1
