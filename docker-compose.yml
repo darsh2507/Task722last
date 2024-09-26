@@ -13,7 +13,7 @@ services:
      - "8080:8080"
     environment:
       - PORT=8080
-      - DATABASE_URL=postgresql://sit722part4_94kt_user:xpzqwpmW8TaW9hzgfqF8Azo7vKMQ0wZh@dpg-crliskrv2p9s73foi53g-a.oregon-postgres.render.com/sit722part4_94kt
+      - DATABASE_URL=postgresql://sit7229_2_user:7T2SYtruiZEEQc8ElZD6Lr0AZX9ZDBCJ@dpg-crqkej68ii6s73d0bo50-a.oregon-postgres.render.com/sit7229_2
     restart: "no"
 
   book-inventory:
@@ -27,5 +27,5 @@ services:
      - "8081:8081"
     environment:
       - PORT=8081
-      - DATABASE_URL=postgresql://sit722part4_94kt_user:xpzqwpmW8TaW9hzgfqF8Azo7vKMQ0wZh@dpg-crliskrv2p9s73foi53g-a.oregon-postgres.render.com/sit722part4_94kt
+      - DATABASE_URL=postgresql://sit7229_2_user:7T2SYtruiZEEQc8ElZD6Lr0AZX9ZDBCJ@dpg-crqkej68ii6s73d0bo50-a.oregon-postgres.render.com/sit7229_2
     restart: "no"
