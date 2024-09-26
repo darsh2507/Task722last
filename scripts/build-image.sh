@@ -5,6 +5,6 @@ set -u # or set -o nounset
 
 docker compose -f ./docker-compose.yml build
 
-docker tag books $CONTAINER_REGISTRY/bookf:latest 
+docker tag bookf $CONTAINER_REGISTRY/bookf:latest 
 
-docker tag inventory $CONTAINER_REGISTRY/inventorf:latest
+docker tag inventoryf $CONTAINER_REGISTRY/inventorf:latest
