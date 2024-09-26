@@ -16,13 +16,13 @@ spec:
     spec:
       containers:
         - name: bookf
-          image: flixtubessittask.azurecr.io/bookf:latest
+          image: task9darsh.azurecr.io/bookf:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
           env:
             - name: DATABASE_URL
-              value: "postgresql://sit722part4_94kt_user:xpzqwpmW8TaW9hzgfqF8Azo7vKMQ0wZh@dpg-crliskrv2p9s73foi53g-a.oregon-postgres.render.com/sit722part4_94kt"
+              value: "postgresql://sit7229_2_user:7T2SYtruiZEEQc8ElZD6Lr0AZX9ZDBCJ@dpg-crqkej68ii6s73d0bo50-a.oregon-postgres.render.com/sit7229_2"
 ---
 apiVersion: v1
 kind: Service
@@ -57,13 +57,13 @@ spec:
     spec:
       containers:
         - name: inventoryf
-          image: flixtubessittask.azurecr.io/inventoryf:latest
+          image: task9darsh.azurecr.io/inventoryf:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8081
           env:
             - name: DATABASE_URL
-              value: "postgresql://sit722part4_94kt_user:xpzqwpmW8TaW9hzgfqF8Azo7vKMQ0wZh@dpg-crliskrv2p9s73foi53g-a.oregon-postgres.render.com/sit722part4_94kt"
+              value: "postgresql://sit7229_2_user:7T2SYtruiZEEQc8ElZD6Lr0AZX9ZDBCJ@dpg-crqkej68ii6s73d0bo50-a.oregon-postgres.render.com/sit7229_2"
 ---
 apiVersion: v1
 kind: Service
