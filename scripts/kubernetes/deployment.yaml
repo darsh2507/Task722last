@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: bookf
-          image: task9darsh.azurecr.io/bookf:latest
+          image: task9darsh.azurecr.io/bookf:1
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
@@ -57,7 +57,7 @@ spec:
     spec:
       containers:
         - name: inventoryf
-          image: task9darsh.azurecr.io/inventoryf:latest
+          image: task9darsh.azurecr.io/inventoryf:1
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8081
